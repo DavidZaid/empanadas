@@ -2,229 +2,83 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Restaurante Demo | Pedidos y Reservas por WhatsApp</title>
+  <title>Empanadas Don Juan | Pedido por WhatsApp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Restaurante con reservas, pedidos y atención por WhatsApp. Demo para negocios.">
+  <meta name="description" content="Empanadas artesanales recién hechas. Pide fácil por WhatsApp.">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-    body{background:#0b0b0b;color:#fff}
-    :root{--orange:#ff7a00;--glow:0 0 30px rgba(255,122,0,.6)}
-
-    header{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:60px 10%;
-      gap:40px
-    }
-
-    h1{font-size:3rem}
-    p{color:#cfcfcf;line-height:1.7}
-
-    .btn{
-      display:inline-block;
-      margin-top:25px;
-      padding:15px 36px;
-      background:var(--orange);
-      color:#000;
-      border-radius:40px;
-      font-weight:600;
-      text-decoration:none;
-      box-shadow:var(--glow)
-    }
-
-    section{padding:90px 10%}
-
-    .title{
-      text-align:center;
-      font-size:2.4rem;
-      margin-bottom:60px
-    }
-    .title span{color:var(--orange)}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px
-    }
-
-    .card{
-      background:#111;
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      transition:.3s
-    }
-    .card:hover{
-      transform:translateY(-8px);
-      box-shadow:var(--glow)
-    }
-
-    .card i{
-      font-size:2.2rem;
-      color:var(--orange);
-      margin-bottom:15px
-    }
-
-    .demo-btn{
-      display:block;
-      margin-top:15px;
-      padding:14px;
-      border-radius:30px;
-      background:#222;
-      color:#fff;
-      text-decoration:none;
-      font-weight:500;
-      transition:.3s
-    }
-    .demo-btn:hover{
-      background:var(--orange);
-      color:#000
-    }
-
-    footer{
-      text-align:center;
-      padding:25px;
-      color:#777;
-      font-size:.9rem
-    }
-
-    .whatsapp-float{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:#25d366;
-      color:#fff;
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:2rem;
-      text-decoration:none;
-      box-shadow:0 0 20px rgba(37,211,102,.6)
-    }
-
-    @media(max-width:900px){
-      header{
-        flex-direction:column;
-        text-align:center;
-        padding:40px 6%
-      }
-      h1{font-size:2.2rem}
-      section{padding:60px 6%}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<header>
-  <div>
-    <span style="color:#ff7a00;font-weight:600">
-      Demo · Restaurante
-    </span>
-
-    <h1>Pedidos y reservas por WhatsApp</h1>
-
-    <p>
-      Atiende a tus clientes sin llamadas ni desorden.
-      Recibe reservas, pedidos y consultas directamente en WhatsApp.
-    </p>
-
-    <a class="btn" href="https://wa.me/573001234567" target="_blank">
-      💬 Escribir por WhatsApp
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Empanadas artesanales<br><span>recién hechas</span></h1>
+    <p>Sabor casero, ingredientes frescos y atención rápida por WhatsApp.</p>
+    <a href="https://wa.me/573000000000?text=Hola%20quiero%20hacer%20un%20pedido" class="btn">
+      Pedir por WhatsApp
     </a>
   </div>
-</header>
-
-<section>
-  <h2 class="title">¿Qué puede <span>hacer</span> el cliente?</h2>
-
-  <div class="grid">
-    <div class="card">
-      <i class="fas fa-calendar-check"></i>
-      <h4>Reservar mesa</h4>
-      <p>El cliente envía la solicitud directamente por WhatsApp.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-burger"></i>
-      <h4>Hacer pedido</h4>
-      <p>Pedidos rápidos sin apps ni registros.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-headset"></i>
-      <h4>Atención directa</h4>
-      <p>Consultas, horarios y ubicación.</p>
-    </div>
-  </div>
 </section>
 
-<section>
-  <h2 class="title">Probar <span>la demo</span></h2>
+<!-- SABORES -->
+<section class="sabores">
+  <h2>Nuestros sabores</h2>
 
   <div class="grid">
 
     <div class="card">
-      <h4>📅 Reservar mesa</h4>
-      <p>Simula una reserva real.</p>
-      <a class="demo-btn"
-         href="https://wa.me/573001234567?text=Hola%20quiero%20reservar%20una%20mesa"
-         target="_blank">
-        Probar reserva
+      <img src="images/carne.png" alt="Empanada de carne">
+      <h3>Carne</h3>
+      <p>Carne sazonada, jugosa y crujiente.</p>
+      <a href="https://wa.me/573000000000?text=Quiero%20empanadas%20de%20carne" class="link">
+        Pedir este sabor →
       </a>
     </div>
 
     <div class="card">
-      <h4>🍔 Hacer pedido</h4>
-      <p>Simula un pedido por WhatsApp.</p>
-      <a class="demo-btn"
-         href="https://wa.me/573001234567?text=Hola%20quiero%20hacer%20un%20pedido"
-         target="_blank">
-        Probar pedido
+      <img src="images/pollo.png" alt="Empanada de pollo">
+      <h3>Pollo</h3>
+      <p>Pollo desmechado con receta especial.</p>
+      <a href="https://wa.me/573000000000?text=Quiero%20empanadas%20de%20pollo" class="link">
+        Pedir este sabor →
       </a>
     </div>
 
     <div class="card">
-      <h4>💬 Hablar con el restaurante</h4>
-      <p>Atención directa.</p>
-      <a class="demo-btn"
-         href="https://wa.me/573001234567?text=Hola%20necesito%20información"
-         target="_blank">
-        Probar atención
+      <img src="images/mixta.png" alt="Empanada mixta">
+      <h3>Mixta</h3>
+      <p>La combinación favorita de nuestros clientes.</p>
+      <a href="https://wa.me/573000000000?text=Quiero%20empanadas%20mixtas" class="link">
+        Pedir este sabor →
       </a>
     </div>
 
   </div>
 </section>
 
-<section style="text-align:center">
-  <h2 class="title">¿Quieres esto <span>para tu negocio</span>?</h2>
-  <p>
-    Implemento esta página en pocos días,
-    personalizada para tu restaurante.
-  </p>
+<!-- COMO PEDIR -->
+<section class="como-pedir">
+  <h2>¿Cómo pedir?</h2>
+  <div class="pasos">
+    <div>📱 Escríbenos por WhatsApp</div>
+    <div>🥟 Elige tus sabores</div>
+    <div>✅ Confirmamos tu pedido</div>
+  </div>
+</section>
 
-  <a class="btn" href="https://wa.me/573001234567" target="_blank">
-    Hablar ahora
+<!-- CTA FINAL -->
+<section class="cta">
+  <h2>Haz tu pedido ahora</h2>
+  <a href="https://wa.me/573000000000" class="btn">
+    Escribir por WhatsApp
   </a>
 </section>
 
 <footer>
-  © 2026 · Demo Web + WhatsApp · Juan David
+  Página demo creada por <strong>Juan David</strong> · Web + Automatización + WhatsApp
 </footer>
-
-<a class="whatsapp-float" href="https://wa.me/573001234567" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
 
 </body>
 </html>
