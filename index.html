@@ -1,244 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicias Empanadas | Demo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --rojo-principal: #C41212;
-            --crema-fondo: #FFF8E7;
-            --marron-oscuro: #4A1C1C;
-            --blanco: #ffffff;
-            --naranja-boton: #E68A00;
-        }
+<meta charset="UTF-8">
+<title>Empanadas Artesanales | Demo Web</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--crema-fondo);
-            color: var(--marron-oscuro);
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0b0b0b;color:#111}
 
-        header {
-            background-color: var(--blanco);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#b40000,#6e0000);
+  color:#fff;
+  padding:70px 10%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+}
+.hero-text{max-width:520px}
+.hero-text h1{
+  font-size:3.2rem;
+  line-height:1.1;
+  font-weight:800;
+}
+.hero-text p{
+  margin:20px 0;
+  font-size:1.05rem;
+  opacity:.9;
+}
+.btn{
+  display:inline-block;
+  padding:14px 36px;
+  background:#ffb703;
+  color:#000;
+  border-radius:40px;
+  font-weight:700;
+  text-decoration:none;
+}
+.hero-img img{
+  width:420px;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));
+}
 
-        .logo {
-            font-weight: 900;
-            color: var(--rojo-principal);
-            font-size: 1.5rem;
-        }
+/* ===== SECTION CREAM ===== */
+.section-cream{
+  background:#f6e7d6;
+  padding:90px 10%;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
+}
+.card{
+  background:#fff;
+  border-radius:22px;
+  padding:25px;
+  text-align:center;
+}
+.card img{
+  width:100%;
+  border-radius:16px;
+  margin-bottom:15px;
+}
+.card h4{margin-bottom:8px}
+.card p{font-size:.9rem;color:#555}
 
-        nav a {
-            text-decoration: none;
-            color: var(--marron-oscuro);
-            margin-left: 20px;
-            font-weight: 600;
-        }
+/* ===== FEATURE ===== */
+.feature{
+  background:#f6e7d6;
+  padding:90px 10%;
+  display:flex;
+  align-items:center;
+  gap:60px;
+}
+.feature img{
+  width:420px;
+  border-radius:30px;
+}
+.feature h2{
+  font-size:2.4rem;
+  margin-bottom:15px;
+}
+.feature p{
+  color:#444;
+  margin-bottom:20px;
+}
 
-        /* Hero Section */
-        .hero {
-            background-color: var(--rojo-principal);
-            color: var(--blanco);
-            padding: 60px 5%;
-            text-align: center;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+/* ===== CTA ===== */
+.cta{
+  background:radial-gradient(circle,#8a0000,#3d0000);
+  color:#fff;
+  padding:100px 10%;
+  text-align:center;
+}
+.cta h2{font-size:2.6rem;margin-bottom:15px}
+.cta p{opacity:.9;margin-bottom:25px}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            line-height: 1;
-        }
+footer{
+  background:#000;
+  color:#777;
+  text-align:center;
+  padding:25px;
+  font-size:.85rem;
+}
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            background-color: var(--naranja-boton);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Seccion Sabores */
-        .sabores {
-            padding: 50px 5%;
-        }
-
-        .sabores h2 {
-            font-size: 2rem;
-            color: var(--rojo-principal);
-            margin-bottom: 30px;
-        }
-
-        .grid-empanadas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            padding-bottom: 20px;
-            transition: 0.3s;
-        }
-
-        .card:hover { transform: translateY(-5px); }
-
-        .card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .card h3 {
-            margin: 15px 0 5px;
-            font-size: 1.1rem;
-        }
-
-        /* Footer Estilo Wave */
-        .footer-waves {
-            background-color: var(--marron-oscuro);
-            color: white;
-            padding: 60px 5% 20px;
-            margin-top: 50px;
-            position: relative;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .footer-section { flex: 1; min-width: 250px; }
-
-        .footer-section h4 {
-            color: var(--naranja-boton);
-            margin-bottom: 15px;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            text-decoration: none;
-        }
-
-    </style>
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hero{flex-direction:column-reverse;text-align:center}
+  .hero-img img{width:280px}
+  .feature{flex-direction:column;text-align:center}
+  .feature img{width:100%}
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">🥟 Delicias</div>
-        <nav>
-            <a href="#">Menú</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Contacto</a>
-        </nav>
-    </header>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Empanadas<br>artesanales</h1>
+    <p>
+      Recetas tradicionales, ingredientes frescos y sabor que enamora
+      desde el primer bocado.
+    </p>
+    <a href="#" class="btn">Ver menú</a>
+  </div>
 
-    <section class="hero">
-        <p>¡Empanadas a un clic!</p>
-        <h1>Sabores que<br>Enamoran</h1>
-        <br>
-        <a href="https://wa.me/TUNUMERO" class="cta-button">Hacer Pedido Ahora</a>
-    </section>
+  <div class="hero-img">
+    <img src="images/hero.png" alt="Empanadas premium">
+  </div>
+</section>
 
-    <section class="sabores">
-        <h2>SABORES TRADICIONALES</h2>
-        <div class="grid-empanadas">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1628191139360-4083564d03fd?auto=format&fit=crop&w=300&q=80" alt="Carne">
-                <h3>Empanada de Carne</h3>
-                <p>$2.500</p>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=300&q=80" alt="Pollo">
-                <h3>Carne de Pollo</h3>
-                <p>$2.500</p>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1611315764391-46cbc71f6ceb?auto=format&fit=crop&w=300&q=80" alt="Queso">
-                <h3>Jamón y Queso</h3>
-                <p>$2.500</p>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1606331123988-97bc1b6af779?auto=format&fit=crop&w=300&q=80" alt="Especial">
-                <h3>Especialidad</h3>
-                <p>$3.000</p>
-            </div>
-        </div>
-    </section>
+<!-- CREAM CARDS -->
+<section class="section-cream">
+  <div class="cards">
+    <div class="card">
+      <img src="images/emp1.png">
+      <h4>Carne tradicional</h4>
+      <p>Jugosa, bien sazonada y crujiente.</p>
+    </div>
 
-    <footer class="footer-waves">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>NUESTRA HISTORIA</h4>
-                <p>Desde 1992, elaboramos empanadas con recetas familiares, seleccionando siempre los mejores ingredientes para darte la mejor calidad.</p>
-            </div>
-            <div class="footer-section">
-                <h4>HAZ TU PEDIDO</h4>
-                <p>Contáctanos para tus eventos o pedidos especiales. ¡Atendemos con rapidez y sabor!</p>
-                <br>
-                <a href="#" style="color: white; text-decoration: none;">Ver Más →</a>
-            </div>
-        </div>
-        <hr style="margin-top: 40px; border: 0.5px solid #666;">
-        <p style="text-align: center; margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">
-            Empanadas Frescas, Momentos Felices. © 2026 Delicias Empanadas.
-        </p>
-    </footer>
+    <div class="card">
+      <img src="images/emp2.png">
+      <h4>Pollo artesanal</h4>
+      <p>Receta casera con especias suaves.</p>
+    </div>
 
-    <a href="https://wa.me/TUNUMERO" class="whatsapp-float" target="_blank">
-        📞
-    </a>
+    <div class="card">
+      <img src="images/emp3.png">
+      <h4>Queso & maíz</h4>
+      <p>Cremosa por dentro, dorada por fuera.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <img src="images/section.png" alt="Empanadas">
+  <div>
+    <h2>Sabor que se nota</h2>
+    <p>
+      Empanadas hechas a mano, ideales para pedidos,
+      eventos o venta diaria.
+    </p>
+    <a href="#" class="btn">Pedir ahora</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>¿Antojo?</h2>
+  <p>Haz tu pedido rápido por WhatsApp</p>
+  <a href="#" class="btn">Escribir por WhatsApp</a>
+</section>
+
+<footer>
+  Demo web creada para GitHub Pages · Ideal para negocios locales
+</footer>
 
 </body>
 </html>
+
