@@ -1,190 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Empanadas Artesanales | Demo Web</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empanadas Demo | Diseño Original</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo: #d30a0a;
+            --crema: #e9d5b8;
+            --cafe: #4a1414;
+            --amarillo: #f1b434;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--crema);
+            overflow-x: hidden;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0b0b0b;color:#111}
+        /* --- HEADER --- */
+        header {
+            position: absolute;
+            top: 0; width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            align-items: center;
+            z-index: 10;
+        }
+        .logo { color: white; font-family: 'Fredoka+One', cursive; font-size: 1.5rem; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.9rem; }
+        .btn-top { background: var(--amarillo); padding: 8px 20px; border-radius: 20px; color: #fff; text-decoration: none; }
 
-/* ===== HERO ===== */
-.hero{
-  min-height:100vh;
-  background:radial-gradient(circle at top,#b40000,#6e0000);
-  color:#fff;
-  padding:70px 10%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:50px;
-}
-.hero-text{max-width:520px}
-.hero-text h1{
-  font-size:3.2rem;
-  line-height:1.1;
-  font-weight:800;
-}
-.hero-text p{
-  margin:20px 0;
-  font-size:1.05rem;
-  opacity:.9;
-}
-.btn{
-  display:inline-block;
-  padding:14px 36px;
-  background:#ffb703;
-  color:#000;
-  border-radius:40px;
-  font-weight:700;
-  text-decoration:none;
-}
-.hero-img img{
-  width:420px;
-  filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));
-}
+        /* --- HERO SECTION --- */
+        .hero {
+            background-color: var(--rojo);
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero h1 { 
+            font-family: 'Fredoka+One', cursive; 
+            font-size: 4.5rem; 
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+        .hero-img {
+            width: 350px;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+            margin-top: 20px;
+        }
 
-/* ===== SECTION CREAM ===== */
-.section-cream{
-  background:#f6e7d6;
-  padding:90px 10%;
-}
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
-}
-.card{
-  background:#fff;
-  border-radius:22px;
-  padding:25px;
-  text-align:center;
-}
-.card img{
-  width:100%;
-  border-radius:16px;
-  margin-bottom:15px;
-}
-.card h4{margin-bottom:8px}
-.card p{font-size:.9rem;color:#555}
+        /* --- SECTION SABORES --- */
+        .sabores-section {
+            padding: 80px 10%;
+            background-color: var(--crema);
+        }
+        .title-group { margin-bottom: 40px; }
+        .title-group h2 { font-family: 'Fredoka+One', cursive; font-size: 2.5rem; color: var(--cafe); margin: 0; }
+        .title-group p { color: #887a66; max-width: 400px; }
 
-/* ===== FEATURE ===== */
-.feature{
-  background:#f6e7d6;
-  padding:90px 10%;
-  display:flex;
-  align-items:center;
-  gap:60px;
-}
-.feature img{
-  width:420px;
-  border-radius:30px;
-}
-.feature h2{
-  font-size:2.4rem;
-  margin-bottom:15px;
-}
-.feature p{
-  color:#444;
-  margin-bottom:20px;
-}
+        .cards-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .empanada-card {
+            flex: 1;
+            background: #fff;
+            border-radius: 40px; /* Bordes muy redondeados como la imagen */
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .empanada-card:hover { transform: translateY(-10px); }
+        .empanada-card img { width: 100%; height: 200px; object-fit: cover; }
 
-/* ===== CTA ===== */
-.cta{
-  background:radial-gradient(circle,#8a0000,#3d0000);
-  color:#fff;
-  padding:100px 10%;
-  text-align:center;
-}
-.cta h2{font-size:2.6rem;margin-bottom:15px}
-.cta p{opacity:.9;margin-bottom:25px}
+        /* --- SECCION INFERIOR (CAFE CON ONDAS) --- */
+        .bottom-area {
+            background-color: var(--cafe);
+            color: var(--crema);
+            position: relative;
+            padding: 100px 10% 50px;
+        }
+        /* La curva decorativa */
+        .wave {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%234a1414' d='M0,160L80,176C160,192,320,224,480,213.3C640,203,800,149,960,138.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
-footer{
-  background:#000;
-  color:#777;
-  text-align:center;
-  padding:25px;
-  font-size:.85rem;
-}
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .footer-text h3 { font-family: 'Fredoka+One', cursive; font-size: 2rem; margin-bottom: 15px; }
+        .big-bowl {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 50%;
+            border: 10px solid rgba(255,255,255,0.1);
+        }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .hero{flex-direction:column-reverse;text-align:center}
-  .hero-img img{width:280px}
-  .feature{flex-direction:column;text-align:center}
-  .feature img{width:100%}
-}
-</style>
+        .btn-order {
+            background: var(--rojo);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container, .footer-grid { flex-direction: column; grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Empanadas<br>artesanales</h1>
-    <p>
-      Recetas tradicionales, ingredientes frescos y sabor que enamora
-      desde el primer bocado.
-    </p>
-    <a href="#" class="btn">Ver menú</a>
-  </div>
+    <header>
+        <div class="logo">EMPANADA MASTER</div>
+        <nav>
+            <a href="#">Menú</a>
+            <a href="#">Historia</a>
+            <a href="#">Sucursales</a>
+            <a href="#" class="btn-top">Pedido Online</a>
+        </nav>
+    </header>
 
-  <div class="hero-img">
-    <img src="images/hero.png" alt="Empanadas premium">
-  </div>
-</section>
+    <section class="hero">
+        <h1>TODO EL SABOR<br>EN UN SOLO LUGAR</h1>
+        <p>Tradición hecha a mano, crujientes y deliciosas.</p>
+        <img src="https://cdn.pixabay.com/photo/2024/04/16/15/45/ai-generated-8699996_1280.png" class="hero-img" alt="Empanadas">
+    </section>
 
-<!-- CREAM CARDS -->
-<section class="section-cream">
-  <div class="cards">
-    <div class="card">
-      <img src="images/emp1.png">
-      <h4>Carne tradicional</h4>
-      <p>Jugosa, bien sazonada y crujiente.</p>
+    <section class="sabores-section">
+        <div class="title-group">
+            <h2>NUESTROS SABORES</h2>
+            <p>Elige tu favorita entre nuestra variedad de recetas tradicionales y gourmet.</p>
+        </div>
+
+        <div class="cards-container">
+            <div class="empanada-card">
+                <img src="https://images.unsplash.com/photo-1628191139360-4083564d03fd?auto=format&fit=crop&w=400&q=80" alt="Carne">
+                <div style="padding: 20px; text-align: center;">
+                    <strong style="color: var(--cafe)">Carne Suave</strong>
+                </div>
+            </div>
+            <div class="empanada-card">
+                <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=400&q=80" alt="Pollo">
+                <div style="padding: 20px; text-align: center;">
+                    <strong style="color: var(--cafe)">Pollo y Champiñón</strong>
+                </div>
+            </div>
+            <div class="empanada-card">
+                <img src="https://images.unsplash.com/photo-1611315764391-46cbc71f6ceb?auto=format&fit=crop&w=400&q=80" alt="Queso">
+                <div style="padding: 20px; text-align: center;">
+                    <strong style="color: var(--cafe)">Tres Quesos</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bottom-area">
+        <div class="wave"></div>
+        <div class="footer-grid">
+            <div class="footer-text">
+                <h3>NUESTRA HISTORIA</h3>
+                <p>Desde 1990, llevamos el calor del hogar a cada mordisco. Usamos ingredientes frescos del campo y una masa secreta que te hará volver.</p>
+                <a href="https://wa.me/TUNUMERO" class="btn-order">¡HAZ TU PEDIDO YA!</a>
+            </div>
+            <div style="text-align: right;">
+                <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=500&q=80" class="big-bowl" alt="Empanadas Plato">
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-      <img src="images/emp2.png">
-      <h4>Pollo artesanal</h4>
-      <p>Receta casera con especias suaves.</p>
-    </div>
-
-    <div class="card">
-      <img src="images/emp3.png">
-      <h4>Queso & maíz</h4>
-      <p>Cremosa por dentro, dorada por fuera.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURE -->
-<section class="feature">
-  <img src="images/section.png" alt="Empanadas">
-  <div>
-    <h2>Sabor que se nota</h2>
-    <p>
-      Empanadas hechas a mano, ideales para pedidos,
-      eventos o venta diaria.
-    </p>
-    <a href="#" class="btn">Pedir ahora</a>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>¿Antojo?</h2>
-  <p>Haz tu pedido rápido por WhatsApp</p>
-  <a href="#" class="btn">Escribir por WhatsApp</a>
-</section>
-
-<footer>
-  Demo web creada para GitHub Pages · Ideal para negocios locales
-</footer>
 
 </body>
 </html>
-
