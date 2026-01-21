@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Empanadas Artesanales | Demo Web</title>
+<title>Empanadas Artesanales | Restaurante</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -11,12 +11,40 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#0b0b0b;color:#111}
 
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:20px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+nav h2{
+  color:#fff;
+  font-weight:800;
+  letter-spacing:1px;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
+  opacity:.9;
+}
+nav a:hover{opacity:1}
+
 /* ===== HERO ===== */
 .hero{
   min-height:100vh;
   background:radial-gradient(circle at top,#b40000,#6e0000);
   color:#fff;
-  padding:70px 10%;
+  padding:120px 10% 70px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -24,15 +52,16 @@ body{background:#0b0b0b;color:#111}
 }
 .hero-text{max-width:520px}
 .hero-text h1{
-  font-size:3.2rem;
+  font-size:3.6rem;
   line-height:1.1;
   font-weight:800;
 }
 .hero-text p{
-  margin:20px 0;
-  font-size:1.05rem;
+  margin:25px 0;
+  font-size:1.1rem;
   opacity:.9;
 }
+
 .btn{
   display:inline-block;
   padding:14px 36px;
@@ -41,7 +70,10 @@ body{background:#0b0b0b;color:#111}
   border-radius:40px;
   font-weight:700;
   text-decoration:none;
+  transition:.3s;
 }
+.btn:hover{transform:translateY(-3px); box-shadow:0 15px 30px rgba(0,0,0,.4)}
+
 .hero-img{
   animation: float 6s ease-in-out infinite;
   position: relative;
@@ -54,54 +86,61 @@ body{background:#0b0b0b;color:#111}
     0 0 80px rgba(255,0,0,.18);
 }
 
-
 .hero-img img{
   width:520px;
   border-radius:24px;
   display:block;
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.65),
-    inset 0 0 0 1px rgba(255,255,255,.05);
+  box-shadow:0 25px 60px rgba(0,0,0,.65);
 }
-
 
 .hero-img::after{
   content:"";
   position:absolute;
   inset:0;
-  border-radius:40px;
+  border-radius:32px;
   border:1px solid rgba(255,80,80,.25);
-  pointer-events:none;
 }
 
 /* ===== SECTION CREAM ===== */
 .section-cream{
   background:#f6e7d6;
-  padding:90px 10%;
+  padding:100px 10%;
 }
+.section-cream h2{
+  text-align:center;
+  font-size:2.6rem;
+  margin-bottom:60px;
+}
+
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
 }
 .card{
   background:#fff;
-  border-radius:22px;
+  border-radius:24px;
   padding:25px;
   text-align:center;
+  transition:.4s;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 40px 80px rgba(0,0,0,.25);
 }
 .card img{
   width:100%;
-  border-radius:16px;
-  margin-bottom:15px;
+  border-radius:18px;
+  margin-bottom:18px;
 }
-.card h4{margin-bottom:8px}
-.card p{font-size:.9rem;color:#555}
+.card h4{margin-bottom:10px;font-size:1.3rem}
+.card p{font-size:.95rem;color:#555}
 
 /* ===== FEATURE ===== */
 .feature{
   background:#f6e7d6;
-  padding:90px 10%;
+  padding:100px 10%;
   display:flex;
   align-items:center;
   gap:60px;
@@ -109,49 +148,64 @@ body{background:#0b0b0b;color:#111}
 .feature img{
   width:420px;
   border-radius:30px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
 }
 .feature h2{
-  font-size:2.4rem;
+  font-size:2.6rem;
   margin-bottom:15px;
 }
 .feature p{
   color:#444;
-  margin-bottom:20px;
+  margin-bottom:25px;
+  font-size:1.05rem;
 }
 
 /* ===== CTA ===== */
 .cta{
   background:radial-gradient(circle,#8a0000,#3d0000);
   color:#fff;
-  padding:100px 10%;
+  padding:120px 10%;
   text-align:center;
 }
-.cta h2{font-size:2.6rem;margin-bottom:15px}
-.cta p{opacity:.9;margin-bottom:25px}
+.cta h2{font-size:3rem;margin-bottom:15px}
+.cta p{opacity:.9;margin-bottom:30px;font-size:1.1rem}
 
+/* ===== FOOTER ===== */
 footer{
   background:#000;
   color:#777;
   text-align:center;
-  padding:25px;
+  padding:30px;
   font-size:.85rem;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .hero{flex-direction:column-reverse;text-align:center}
-  .hero-img img{width:380px}
+  .hero-img img{width:360px}
   .feature{flex-direction:column;text-align:center}
   .feature img{width:100%}
 }
-  @keyframes float{
+
+@keyframes float{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+  50%{transform:translateY(-12px)}
 }
 </style>
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>Empanadas</h2>
+  <div>
+    <a href="#">Inicio</a>
+    <a href="#">Menú</a>
+    <a href="#">Pedidos</a>
+    <a href="#">Contacto</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -171,21 +225,23 @@ footer{
 
 <!-- CREAM CARDS -->
 <section class="section-cream">
+  <h2>Nuestras especialidades</h2>
+
   <div class="cards">
     <div class="card">
-      <img src="images/carne.png">
+      <img src="imagenes/carne.png">
       <h4>Carne tradicional</h4>
       <p>Jugosa, bien sazonada y crujiente.</p>
     </div>
 
     <div class="card">
-      <img src="images/pollo.png">
+      <img src="imagenes/pollo.png">
       <h4>Pollo artesanal</h4>
       <p>Receta casera con especias suaves.</p>
     </div>
 
     <div class="card">
-      <img src="images/queso maiz.png">
+      <img src="imagenes/queso maiz.png">
       <h4>Queso & maíz</h4>
       <p>Cremosa por dentro, dorada por fuera.</p>
     </div>
