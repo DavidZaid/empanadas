@@ -47,8 +47,9 @@ body{background:#0b0b0b;color:#111}
   position: relative;
   padding: 30px;
   border-radius: 40px;
-  background: linear-gradient(145deg, rgba(255,183,3,.35), rgba(255,183,3,.05));
-  backdrop-filter: blur(4px);
+  background: linear-gradient(145deg, rgba(180,0,0,.55), rgba(0,0,0,.2));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 120px rgba(255,0,0,.25);
 }
 
 
@@ -56,11 +57,20 @@ body{background:#0b0b0b;color:#111}
   width:520px;
   border-radius:28px;
   box-shadow:
-    0 40px 80px rgba(0,0,0,.55),
-    inset 0 0 0 1px rgba(255,255,255,.15);
+    0 40px 80px rgba(0,0,0,.6),
+    0 0 60px rgba(255,0,0,.25),
+    inset 0 0 0 1px rgba(255,255,255,.08);
   display:block;
 }
 
+.hero-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:40px;
+  border:1px solid rgba(255,80,80,.25);
+  pointer-events:none;
+}
 
 /* ===== SECTION CREAM ===== */
 .section-cream{
