@@ -51,6 +51,7 @@ body{background:#0b0b0b;color:#111}
 }
 
 .hero-img::before{
+  animation: float 6s ease-in-out infinite;
   content:"";
   position:absolute;
   inset:0;
@@ -141,6 +142,10 @@ footer{
   .hero-img img{width:380px}
   .feature{flex-direction:column;text-align:center}
   .feature img{width:100%}
+}
+  @keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
 </style>
 </head>
