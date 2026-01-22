@@ -47,6 +47,7 @@ nav a:hover{opacity:1}
   flex-direction: column;
   cursor: pointer;
   z-index: 1001;
+  padding: 5px;
 }
 
 .hamburger span {
@@ -295,18 +296,19 @@ footer{
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 80%;
-    max-width: 300px;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(15px);
+    width: 100%;
+    max-width: 320px;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 80px;
-    transition: right 0.4s ease;
-    z-index: 1000;
-    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-left: 30px;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 999;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.7);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .nav-links.active {
@@ -314,22 +316,50 @@ footer{
   }
   
   .nav-links a {
-    margin: 15px 0;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    width: 80%;
-    text-align: center;
+    margin: 12px 0;
+    font-size: 1.3rem;
+    padding: 12px 20px;
+    text-align: left;
     border-radius: 8px;
-    transition: background 0.3s;
+    transition: all 0.3s;
+    width: 90%;
+    opacity: 1;
+    letter-spacing: 0.5px;
   }
   
   .nav-links a:hover {
     background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
   }
   
-  /* Asegurar que el contenido no se desplace cuando el menú está abierto */
-  body.menu-open {
-    overflow: hidden;
+  /* Overlay para cerrar el menú */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  
+  .nav-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Ajustar padding del nav para móvil */
+  nav {
+    padding: 15px 20px;
+  }
+  
+  /* Ajustar tamaño del logo en móvil */
+  nav h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
   }
 }
 
@@ -352,6 +382,9 @@ footer{
     <span></span>
     <span></span>
   </div>
+  
+  <!-- Overlay para cerrar menú -->
+  <div class="nav-overlay" id="navOverlay"></div>
   
   <!-- Menú de navegación -->
   <div class="nav-links" id="navLinks">
@@ -437,12 +470,22 @@ footer{
 // JavaScript para el menú hamburguesa
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
 const body = document.body;
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navLinks.classList.toggle('active');
+  navOverlay.classList.toggle('active');
   body.classList.toggle('menu-open');
+});
+
+// Cerrar el menú al hacer clic en el overlay
+navOverlay.addEventListener('click', () => {
+  hamburger.classList.remove('active');
+  navLinks.classList.remove('active');
+  navOverlay.classList.remove('active');
+  body.classList.remove('menu-open');
 });
 
 // Cerrar el menú al hacer clic en un enlace
@@ -451,22 +494,9 @@ navItems.forEach(item => {
   item.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navLinks.classList.remove('active');
+    navOverlay.classList.remove('active');
     body.classList.remove('menu-open');
   });
-});
-
-// Cerrar el menú al hacer clic fuera de él (solo en móvil)
-document.addEventListener('click', (event) => {
-  const isClickInsideNav = navLinks.contains(event.target);
-  const isClickOnHamburger = hamburger.contains(event.target);
-  const isMobile = window.innerWidth <= 900;
-  
-  if (isMobile && navLinks.classList.contains('active') && 
-      !isClickInsideNav && !isClickOnHamburger) {
-    hamburger.classList.remove('active');
-    navLinks.classList.remove('active');
-    body.classList.remove('menu-open');
-  }
 });
 
 // Asegurar que el menú se cierre al cambiar a vista desktop
@@ -474,6 +504,17 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 900) {
     hamburger.classList.remove('active');
     navLinks.classList.remove('active');
+    navOverlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  }
+});
+
+// Cerrar menú con tecla Escape
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    navOverlay.classList.remove('active');
     body.classList.remove('menu-open');
   }
 });
