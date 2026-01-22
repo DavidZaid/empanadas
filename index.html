@@ -103,6 +103,7 @@ nav a:hover{opacity:1}
 
 .hero-img img{
   width:540px;
+  max-width:100%;
   border-radius:26px;
   display:block;
   box-shadow:0 30px 80px rgba(0,0,0,.7);
@@ -193,6 +194,7 @@ nav a:hover{opacity:1}
 
 .feature img{
   width:460px;
+  max-width:100%;
   border-radius:36px;
   box-shadow:0 40px 80px rgba(0,0,0,.35);
 }
@@ -241,13 +243,72 @@ footer{
   letter-spacing:.5px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE MOBILE ===== */
 @media(max-width:900px){
-  .hero{flex-direction:column-reverse;text-align:center}
-  .hero-img img{width:360px}
-  .feature{flex-direction:column;text-align:center}
-  .feature img{width:100%}
-  .hero-text h1{font-size:3.2rem}
+  nav{
+    padding:16px 6%;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  nav div{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+    padding:130px 6% 80px;
+  }
+
+  .hero-text h1{
+    font-size:3rem;
+  }
+
+  .hero-text p{
+    margin:20px auto 30px;
+  }
+
+  .hero-img{
+    padding:14px;
+    border-radius:28px;
+  }
+
+  .hero-img img{
+    width:100%;
+    max-width:340px;
+    border-radius:22px;
+  }
+
+  .section-cream{
+    padding:90px 6%;
+  }
+
+  .section-cream h2{
+    font-size:2.4rem;
+    margin-bottom:60px;
+  }
+
+  .feature{
+    flex-direction:column;
+    text-align:center;
+    padding:90px 6%;
+  }
+
+  .feature h2{
+    font-size:2.4rem;
+  }
+
+  .cta{
+    padding:110px 6%;
+  }
+
+  .cta h2{
+    font-size:2.6rem;
+  }
 }
 
 @keyframes float{
@@ -259,7 +320,6 @@ footer{
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <h2>EMPANADAS</h2>
   <div>
@@ -270,7 +330,6 @@ footer{
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <h1>Empanadas<br>artesanales</h1>
@@ -286,7 +345,6 @@ footer{
   </div>
 </section>
 
-<!-- CREAM CARDS -->
 <section class="section-cream">
   <h2>Nuestras especialidades</h2>
 
@@ -317,7 +375,6 @@ footer{
   </div>
 </section>
 
-<!-- FEATURE -->
 <section class="feature">
   <img src="imagenes/hero.png" alt="Empanadas">
   <div>
@@ -330,7 +387,6 @@ footer{
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <h2>¿Antojo?</h2>
   <p>Haz tu pedido rápido por WhatsApp</p>
@@ -343,4 +399,3 @@ footer{
 
 </body>
 </html>
-
