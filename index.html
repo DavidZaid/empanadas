@@ -3,452 +3,474 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Antojería — Empanadas Premium & Ají Artesanal</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<title>Empanadas Artesanales | Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 :root{
-  --red:#c8000a;--red2:#8a0005;--red3:#f5e8e0;
-  --cream:#fdf4ec;--cream2:#f5e8dc;--cream3:#eeddd0;
-  --gold:#e8a020;--gold2:#f5b830;--dark:#1a0a05;
-  --text:#2d1005;--muted:#8a6050;
+  --bg-cream: #fdf6ec;
+  --bg-cream-dark: #f5ebd9;
+  --terracotta: #a62626;
+  --terracotta-dark: #701414;
+  --gold: #ffb703;
+  --gold2: #ff9f1c;
+  --white: #ffffff;
+  --text-dark: #2c1a11;
+  --text-muted: #6e5a4f;
 }
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--text);overflow-x:hidden;font-family:'Poppins',sans-serif}
- 
-/* ── FLOATING CTA ── */
-.float-wa{position:fixed;bottom:24px;right:24px;z-index:999}
-.float-wa a{display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 22px;border-radius:50px;font-weight:700;font-size:.85rem;text-decoration:none;box-shadow:0 8px 32px rgba(37,211,102,.45);animation:wpulse 2.5s ease-in-out infinite}
-@keyframes wpulse{0%,100%{box-shadow:0 8px 32px rgba(37,211,102,.45)}50%{box-shadow:0 12px 48px rgba(37,211,102,.7)}}
-.float-wa svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
- 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;width:100%;z-index:500;padding:0 6%;height:70px;display:flex;align-items:center;justify-content:space-between;transition:.4s;background:rgba(26,10,5,.2);backdrop-filter:blur(10px)}
-nav.scrolled{background:rgba(200,0,10,.96);backdrop-filter:blur(20px)}
-.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;color:#fff;text-decoration:none;letter-spacing:-0.5px}
-.nav-logo span{color:var(--gold2)}
-.nav-links{display:flex;gap:28px}
-.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.82rem;font-weight:500;transition:.2s}
-.nav-links a:hover{color:var(--gold2)}
-.nav-order{background:var(--gold2);color:var(--dark);padding:10px 22px;border-radius:50px;font-weight:800;font-size:.8rem;text-decoration:none;transition:.3s}
-.nav-order:hover {background:#fff;transform:scale(1.05)}
- 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;
-  background:linear-gradient(135deg, var(--red) 0%, var(--red2) 100%);
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  padding:120px 6% 80px;
-  gap:40px;
-}
-.hero-bg-pattern{
-  position:absolute;inset:0;
-  background-image:
-    radial-gradient(circle at 20% 80%,rgba(255,255,255,.04) 0%,transparent 50%),
-    radial-gradient(circle at 80% 20%,rgba(255,255,255,.06) 0%,transparent 50%);
-  pointer-events:none;
-}
- 
-/* Ingredientes flotantes */
-.ingr{position:absolute;font-size:2.5rem;animation:floatIngr linear infinite;pointer-events:none;user-select:none;z-index:1}
-@keyframes floatIngr{
-  0%{transform:translateY(110vh) rotate(0deg);opacity:0}
-  5%{opacity:.7}
-  95%{opacity:.5}
-  100%{transform:translateY(-20vh) rotate(720deg);opacity:0}
-}
- 
-.hero-left{flex:1;position:relative;z-index:3;max-width:560px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:7px 18px;border-radius:50px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,4.8rem);font-weight:900;line-height:.95;color:#fff;margin-bottom:20px;letter-spacing:-2px}
-.hero h1 .accent{color:var(--gold2);display:block;font-style:italic}
-.hero-sub{color:rgba(255,255,255,.8);font-size:1rem;line-height:1.8;max-width:440px;margin-bottom:32px;font-weight:300}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
-.btn-hero-primary{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--red);padding:15px 32px;border-radius:50px;font-weight:800;font-size:.9rem;text-decoration:none;transition:.3s;box-shadow:0 8px 24px rgba(0,0,0,.2)}
-.btn-hero-primary:hover{background:var(--gold2);color:var(--dark);transform:translateY(-3px)}
- 
-.hero-right{flex:1;position:relative;z-index:3;display:flex;align-items:center;justify-content:center}
-.hero-dish-wrap{position:relative;width:100%;max-width:480px}
-.hero-dish-glow{position:absolute;inset:-60px;background:radial-gradient(circle,rgba(255,183,3,.25) 0%,transparent 65%);pointer-events:none;animation:glowPulse 3s ease-in-out infinite}
-@keyframes glowPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:1}}
-.hero-dish-img{width:100%;display:block;animation:dishFloat 5s ease-in-out infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,0.4));position:relative;z-index:2;border-radius:30px;object-fit:cover}
-@keyframes dishFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-15px) rotate(1deg)}}
- 
-/* ── STATS BAR ── */
-.stats-bar{background:var(--gold2);padding:20px 6%;display:flex;align-items:center;justify-content:center;gap:0;position:relative;z-index:10}
-.stat-item{text-align:center;padding:0 40px;border-right:2px solid rgba(0,0,0,.1)}
-.stat-item:last-child{border-right:none}
-.stat-n{font-size:1.8rem;font-weight:900;color:var(--dark);line-height:1}
-.stat-l{font-size:.65rem;font-weight:700;color:rgba(26,10,5,.6);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
- 
-/* ── MARQUEE ── */
-.marquee-wrap{background:var(--dark);overflow:hidden;padding:14px 0}
-.marquee-track{display:flex;width:max-content;animation:marquee 20s linear infinite}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.mq-item{display:inline-flex;align-items:center;gap:12px;padding:0 28px;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;letter-spacing:.08em;text-transform:uppercase}
-.mq-dot{color:var(--gold2);font-size:.9rem}
- 
-/* ── SECTION BASE ── */
-.section{padding:100px 6%;position:relative}
-.sec-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
-.sec-eyebrow::before{content:"";width:18px;height:2px;background:var(--red);border-radius:2px;display:block}
-.sec-h{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:14px;color:var(--text)}
-.sec-h span{color:var(--red);font-style:italic}
-.sec-p{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:520px;margin-bottom:56px;font-weight:300}
- 
-/* ── MENU SECTION ── */
-.menu-section{background:var(--cream)}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px}
-.menu-card{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:.5s cubic-bezier(.16,1,.3,1);cursor:pointer;position:relative}
-.menu-card:hover{transform:translateY(-14px) scale(1.02);box-shadow:0 32px 80px rgba(200,0,10,.15)}
-.mc-img{width:100%;height:230px;overflow:hidden;position:relative;background:var(--cream2)}
-.mc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.menu-card:hover .mc-img img{transform:scale(1.12)}
-.mc-badge{position:absolute;top:14px;left:14px;background:var(--red);color:#fff;font-size:.65rem;font-weight:800;padding:5px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:.08em}
-.mc-badge.gold{background:var(--gold)}
-.mc-body{padding:22px}
-.mc-body h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:6px}
-.mc-body p{color:var(--muted);font-size:.83rem;line-height:1.7;margin-bottom:16px;font-weight:300}
-.mc-footer{display:flex;align-items:center;justify-content:space-between}
-.mc-price{font-size:1.6rem;font-weight:900;color:var(--red)}
-.mc-price span{font-size:.72rem;color:var(--muted);font-weight:400;margin-left:2px}
-.mc-btn{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:10px 18px;border-radius:50px;font-size:.75rem;font-weight:700;text-decoration:none;transition:.3s}
-.mc-btn:hover{background:var(--dark);transform:scale(1.05)}
-.mc-btn svg{width:14px;height:14px;fill:#fff}
- 
-/* ── FEATURE (DIAGONAL) ── */
-.feature-section{background:var(--cream2);overflow:hidden}
-.feature-inner{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:60px;align-items:center}
-.feat-img-wrap{position:relative}
-.feat-dish{width:100%;border-radius:40px;overflow:hidden;box-shadow:0 40px 80px rgba(200,0,10,.15);height:440px}
-.feat-dish img{width:100%;height:100%;object-fit:cover}
-.feat-tag-float{position:absolute;top:-16px;right:-16px;background:var(--red);color:#fff;border-radius:20px;padding:16px 20px;font-weight:800;font-size:.8rem;text-align:center;box-shadow:0 12px 32px rgba(200,0,10,.3)}
-.feat-tag-float span{display:block;font-size:1.8rem;font-weight:900;line-height:1}
-.feat-list{list-style:none;margin:24px 0 36px}
-.feat-list li{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:.92rem;color:var(--muted);line-height:1.6}
-.feat-list li .icon{width:28px;height:28px;background:var(--red);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
- 
-/* ── STEPS ── */
-.steps-section{background:var(--red);padding:100px 6%;position:relative;overflow:hidden}
-.steps-section .sec-h{color:#fff}
-.steps-section .sec-p{color:rgba(255,255,255,.6)}
-.steps-section .sec-eyebrow{color:var(--gold2)}
-.steps-section .sec-eyebrow::before{background:var(--gold2)}
-.steps-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;position:relative}
-.step-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px 20px;text-align:center;backdrop-filter:blur(8px);transition:.3s;position:relative;z-index:2}
-.step-card:hover{background:rgba(255,255,255,.14);transform:translateY(-6px)}
-.step-n{width:64px;height:64px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.5rem;font-weight:900;color:var(--red);line-height:1;transition:.3s}
-.step-card:hover .step-n{background:var(--gold2);color:var(--dark)}
-.step-card h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px}
-.step-card p{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300}
+body{background:var(--bg-cream);color:var(--text-dark);overflow-x:hidden}
 
-/* ── FOOTER ── */
-footer{background:var(--dark);color:#fff;padding:60px 6% 30px;text-align:center}
-.footer-logo{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-bottom:15px}
-.footer-logo span{color:var(--gold2)}
-.footer-text{color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:30px}
-.footer-copy{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:0.8rem;color:rgba(255,255,255,0.4)}
+/* PARTICLES */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;background:var(--gold2);border-radius:50%;opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(105vh) scale(0);opacity:0}10%{opacity:.5}90%{opacity:.3}100%{transform:translateY(-10vh) scale(1.5);opacity:0}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;padding:18px 8%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.4s}
+nav.scrolled{background:rgba(253, 246, 236, 0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(166,38,38,.1);padding:12px 8%;box-shadow:0 4px 20px rgba(44,26,17,.05)}
+.nav-logo{font-weight:900;font-size:1.3rem;letter-spacing:3px;color:var(--terracotta);text-decoration:none}
+.nav-logo span{color:var(--gold2)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:600;transition:.3s;position:relative}
+.nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--terracotta);transition:.3s}
+.nav-links a:hover{color:var(--terracotta)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:linear-gradient(135deg,var(--terracotta),var(--terracotta-dark));color:var(--white);padding:10px 24px;border-radius:50px;font-weight:700;font-size:.82rem;text-decoration:none;transition:.3s;white-space:nowrap}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(166,38,38,.3)}
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;z-index:1001}
+.hamburger span{width:24px;height:2px;background:var(--terracotta);border-radius:2px;transition:.4s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);color:var(--white);display:flex;align-items:center;padding:140px 8% 80px;gap:60px;position:relative;z-index:1;border-bottom-left-radius:60px;border-bottom-right-radius:60px;box-shadow:0 20px 40px rgba(0,0,0,.1)}
+.hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-text{flex:1;max-width:580px;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--white);padding:8px 18px;border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;animation:fadeDown .8s ease both}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+.hero h1{font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:900;line-height:1.05;letter-spacing:-2px;animation:fadeUp .8s ease .1s both}
+.hero h1 span{color:var(--gold);display:block}
+.hero-sub{margin:24px 0 36px;font-size:1.05rem;color:rgba(255,255,255,.9);line-height:1.8;font-weight:300;animation:fadeUp .8s ease .2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s ease .3s both}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;padding:16px 36px;border-radius:50px;font-weight:800;font-size:.95rem;text-decoration:none;transition:.3s;box-shadow:0 12px 40px rgba(255,183,3,.4)}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(255,183,3,.6)}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.4);color:var(--white);padding:16px 32px;border-radius:50px;font-weight:600;font-size:.9rem;text-decoration:none;transition:.3s;backdrop-filter:blur(8px)}
+.btn-secondary:hover{background:var(--white);color:var(--terracotta)}
+.hero-img-wrap{flex:.9;position:relative;z-index:2;animation:fadeUp .8s ease .2s both}
+.hero-img-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:32px;padding:20px;backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.3);animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.hero-img-card img{width:100%;border-radius:20px;display:block;height:380px;object-fit:cover;box-shadow:0 20px 40px rgba(0,0,0,.2)}
+.hero-stats{display:flex;gap:32px;margin-top:44px;animation:fadeUp .8s ease .4s both}
+.hstat{text-align:center}
+.hstat-n{font-size:2rem;font-weight:900;color:var(--gold);line-height:1}
+.hstat-l{font-size:.65rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.12em;margin-top:4px}
+
+/* MARQUEE */
+.marquee{background:var(--gold);overflow:hidden;padding:14px 0;position:relative;z-index:10;margin-top:-30px;transform:rotate(-1deg);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.marquee-track{display:flex;width:max-content;animation:marquee 22s linear infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{display:inline-flex;align-items:center;gap:10px;padding:0 24px;font-size:.78rem;font-weight:800;color:#000;white-space:nowrap;letter-spacing:.08em;text-transform:uppercase}
+.mq-dot{width:6px;height:6px;border-radius:50%;background:#000;opacity:.4;flex-shrink:0}
+
+/* SECTIONS BASE */
+section{padding:120px 8%;position:relative;z-index:1}
+.sec-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px}
+.sec-tag::before{content:"";width:20px;height:2px;background:var(--terracotta);border-radius:2px}
+.sec-title{font-size:clamp(2rem,4vw,2.8rem);font-weight:900;letter-spacing:-1px;line-height:1.2;margin-bottom:16px;color:var(--text-dark)}
+.sec-title span{color:var(--terracotta)}
+.sec-sub{color:var(--text-muted);font-size:.95rem;line-height:1.8;max-width:560px;margin-bottom:50px;font-weight:400}
+
+/* MENU SECTION */
+.menu-section{background:var(--bg-cream)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.menu-card{background:var(--white);border:1px solid rgba(110,90,79,.1);border-radius:28px;overflow:hidden;transition:.5s cubic-bezier(.16,1,.3,1);cursor:pointer;position:relative;box-shadow:0 10px 30px rgba(44,26,17,.03)}
+.menu-card:hover{transform:translateY(-12px) scale(1.02);border-color:rgba(166,38,38,.2);box-shadow:0 32px 60px rgba(44,26,17,.08)}
+.menu-card-img{width:100%;height:230px;background:var(--bg-cream-dark);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.menu-card:hover .menu-card-img img{transform:scale(1.1)}
+.menu-badge{position:absolute;top:14px;left:14px;background:var(--terracotta);color:var(--white);font-size:.65rem;font-weight:800;padding:5px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:.08em;z-index:2;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.menu-card-body{padding:24px}
+.menu-card-body h3{font-size:1.25rem;font-weight:800;margin-bottom:8px;letter-spacing:-.3px;color:var(--text-dark)}
+.menu-card-body p{color:var(--text-muted);font-size:.85rem;line-height:1.7;font-weight:400;margin-bottom:18px;height:60px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.menu-price{font-size:1.5rem;font-weight:900;color:var(--terracotta)}
+.menu-price span{font-size:.8rem;color:var(--text-muted);font-weight:400;margin-left:4px}
+.menu-order-btn{width:100%;padding:12px;background:rgba(166,38,38,.05);border:1px solid rgba(166,38,38,.15);color:var(--terracotta);border-radius:14px;font-weight:700;font-size:.82rem;cursor:pointer;transition:.3s;text-decoration:none;display:block;text-align:center;margin-top:16px}
+.menu-order-btn:hover{background:var(--terracotta);color:var(--white);transform:translateY(-2px);box-shadow:0 6px 15px rgba(166,38,38,.2)}
+
+/* PROCESS */
+.process-section{background:var(--bg-cream-dark);border-top-left-radius:50px;border-top-right-radius:50px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.steps::before{content:"";position:absolute;top:68px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,rgba(166,38,38,.15),rgba(166,38,38,.15),transparent)}
+.step{text-align:center;padding:20px 10px;position:relative}
+.step-num{width:72px;height:72px;background:var(--white);border:3px solid rgba(166,38,38,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:900;color:var(--terracotta);margin:0 auto 20px;position:relative;z-index:2;transition:.3s;box-shadow:0 6px 15px rgba(0,0,0,.03)}
+.step:hover .step-num{background:linear-gradient(135deg,var(--terracotta),var(--terracotta-dark));color:var(--white);border-color:var(--terracotta);transform:scale(1.1);box-shadow:0 10px 25px rgba(166,38,38,.25)}
+.step h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text-dark)}
+.step p{color:var(--text-muted);font-size:.82rem;line-height:1.7;font-weight:400}
+
+/* FEATURE */
+.feature-section{background:var(--bg-cream)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.feature-img{position:relative}
+.feature-img-card{background:var(--white);border:1px solid rgba(110,90,79,.1);border-radius:32px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.05);height:420px}
+.feature-img-card img{width:100%;height:100%;object-fit:cover}
+.feature-float{position:absolute;bottom:-15px;right:-15px;background:var(--white);border:1px solid rgba(166,38,38,.2);border-radius:20px;padding:18px 22px;box-shadow:0 20px 40px rgba(0,0,0,.08);z-index:2}
+.feature-float-n{font-size:2rem;font-weight:900;color:var(--terracotta);line-height:1}
+.feature-float-l{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+.feature-list{list-style:none;margin-top:28px}
+.feature-list li{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;font-size:.95rem;color:var(--text-muted);line-height:1.6}
+.feature-list li::before{content:"✦";color:var(--terracotta);font-size:.8rem;margin-top:3px;flex-shrink:0}
+
+/* TESTIMONIALS */
+.test-section{background:var(--bg-cream-dark)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.test-card{background:var(--white);border:1px solid rgba(110,90,79,.06);border-radius:24px;padding:32px;transition:.3s;box-shadow:0 10px 25px rgba(0,0,0,.02)}
+.test-card:hover{border-color:rgba(166,38,38,.15);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.05)}
+.test-stars{color:var(--gold2);font-size:1.1rem;margin-bottom:16px;letter-spacing:2px}
+.test-text{color:var(--text-dark);font-size:.9rem;line-height:1.8;font-weight:400;font-style:italic;margin-bottom:20px}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:44px;height:44px;border-radius:50%;background:rgba(166,38,38,.1);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:var(--terracotta)}
+.test-name{font-size:.88rem;font-weight:700;color:var(--text-dark)}
+.test-loc{font-size:.75rem;color:var(--text-muted)}
+
+/* CTA SECTION */
+.cta-section{padding:120px 8%;text-align:center;background:linear-gradient(130deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);color:var(--white);position:relative;overflow:hidden;border-top-left-radius:50px;border-top-right-radius:50px}
+.cta-section::before{content:"";position:absolute;inset:-100px;background:radial-gradient(circle at 30% 50%,rgba(255,183,3,.15),transparent 60%),radial-gradient(circle at 70% 50%,rgba(255,255,255,.05),transparent 60%)}
+.cta-section h2{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:900;letter-spacing:-1px;margin-bottom:16px;position:relative;z-index:2}
+.cta-section p{color:rgba(255,255,255,.9);font-size:1.1rem;max-width:500px;margin:0 auto 40px;line-height:1.8;font-weight:300;position:relative;z-index:2}
+.cta-btn-wrap{position:relative;z-index:2;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-wa{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:18px 48px;border-radius:50px;font-weight:800;font-size:1.05rem;text-decoration:none;transition:.3s;box-shadow:0 16px 48px rgba(37,211,102,.3)}
+.btn-wa:hover{transform:translateY(-5px);box-shadow:0 24px 64px rgba(37,211,102,.5)}
+.btn-wa svg{width:22px;height:22px;fill:#fff;flex-shrink:0}
+.cta-note{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:24px;position:relative;z-index:2}
+
+/* FLOATING WA */
+.float-wa{position:fixed;bottom:28px;right:28px;z-index:999;animation:pulse-wa 2s ease-in-out infinite}
+@keyframes pulse-wa{0%,100%{transform:scale(1);box-shadow:0 8px 32px rgba(37,211,102,.5)}50%{transform:scale(1.08);box-shadow:0 16px 48px rgba(37,211,102,.7)}}
+.float-wa a{display:flex;align-items:center;justify-content:center;width:62px;height:62px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;text-decoration:none}
+.float-wa svg{width:30px;height:30px;fill:#fff}
+
+/* FOOTER */
+footer{background:var(--bg-cream-dark);border-top:1px solid rgba(110,90,79,.1);padding:40px 8%;display:flex;align-items:center;justify-content:space-between}
+.foot-logo{font-weight:900;font-size:1.1rem;letter-spacing:2px;color:var(--terracotta)}
+.foot-logo span{color:var(--gold2)}
+.foot-r{font-size:.78rem;color:var(--text-muted);font-weight:500}
+
+/* REVEAL ON SCROLL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(0.16, 1, 0.3, 1),transform .8s cubic-bezier(0.16, 1, 0.3, 1)}
+.reveal.in{opacity:1;transform:none}
+
+/* MOBILE NAV MENU OVERLAY */
+.mobile-menu{position:fixed;inset:0;background:rgba(253, 246, 236, .98);backdrop-filter:blur(15px);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:.4s cubic-bezier(.16,1,.3,1)}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{color:var(--text-dark);text-decoration:none;font-size:1.5rem;font-weight:700;transition:.3s}
+.mobile-menu a:hover{color:var(--terracotta)}
+.mobile-menu .btn-primary{font-size:1rem;margin-top:12px;padding:14px 32px;color:#000}
+
+/* RESPONSIVE CSS */
+@media(max-width:960px){
+  .nav-links, .nav-cta{display:none}
+  .hamburger{display:flex}
+  
+  .hero{flex-direction:column-reverse;padding:120px 6% 60px;gap:40px;text-align:center}
+  .hero-text{max-width:100%}
+  .hero-btns{justify-content:center}
+  .hero-stats{justify-content:center;gap:24px}
+  .hero-img-wrap{width:100%;max-width:440px}
+  .hero-img-card img{height:300px}
+  
+  .menu-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .steps{grid-template-columns:repeat(2,1fr);gap:20px}
+  .steps::before{display:none}
+  .feature-grid{grid-template-columns:1fr;gap:48px;text-align:center}
+  .feature-img-card{height:340px}
+  .feature-list li{text-align:left}
+  .test-grid{grid-template-columns:1fr;gap:20px}
+  
+  section{padding:70px 6%}
+  footer{flex-direction:column;gap:16px;text-align:center}
+}
+
+@media(max-width:640px){
+  .menu-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .hero h1{font-size:2.5rem}
+}
 </style>
 </head>
 <body>
 
+<div id="particles"></div>
+
 <div class="float-wa">
-  <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20empanadas" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.66.986 3.288 1.488 4.657 1.491 5.423.002 9.834-4.394 9.837-9.82.001-2.628-1.021-5.099-2.88-6.958C16.388 1.908 13.921.886 11.3.886 5.881.886 1.469 5.291 1.466 10.713c-.002 1.442.38 2.85 1.102 4.093l-1.01 3.687 3.784-.993zm13.613-7.511c-.301-.15-1.781-.879-2.056-.979-.275-.1-.475-.15-.675.15-.2.3-.775.979-.95 1.179-.175.2-.35.225-.651.075-1.041-.521-1.737-.965-2.428-2.15-.184-.317.184-.294.526-.975.059-.118.03-.223-.014-.313-.045-.09-.399-.96-.546-1.316-.143-.346-.288-.299-.394-.305-.102-.006-.219-.007-.336-.007a.647.647 0 0 0-.469.22c-.161.176-.614.6-.614 1.464 0 .864.629 1.699.717 1.819.088.12 1.238 1.89 3.001 2.651 1.05.453 1.446.436 1.96.346.368-.064 1.134-.464 1.292-.912.158-.448.158-.831.111-.912-.047-.081-.175-.13-.476-.28z"/></svg>
-    PEDIR POR WHATSAPP
+  <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20empanadas%20🫓" target="_blank" aria-label="Pedir por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 </div>
 
-<nav id="navbar">
-  <a href="#" class="nav-logo">La<span>Antojería</span></a>
+<nav id="nav">
+  <a href="#" class="nav-logo">EMPAN<span>ADAS</span></a>
   <div class="nav-links">
-    <a href="#menu">Nuestro Menú</a>
-    <a href="#proceso">Proceso</a>
-    <a href="#pedir" class="nav-order">¡Pide Ya!</a>
+    <a href="#menu">Menú</a>
+    <a href="#como-pedir">Cómo pedir</a>
+    <a href="#nosotros">Nosotros</a>
+  </div>
+  <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20hacer%20un%20pedido%20🫓" target="_blank" class="nav-cta">Pedir ahora 🔥</a>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </nav>
 
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu">Menú</a>
+  <a href="#como-pedir">Cómo pedir</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20hacer%20un%20pedido%20🫓" target="_blank" class="btn-primary">Pedir ahora 🔥</a>
+</div>
+
 <section class="hero">
-  <div class="hero-bg-pattern"></div>
-  
-  <div class="ingr" style="left:10%; animation-duration:8s;">🫓</div>
-  <div class="ingr" style="left:30%; animation-duration:11s;">🌶️</div>
-  <div class="ingr" style="left:50%; animation-duration:9s;">🥩</div>
-  <div class="ingr" style="left:70%; animation-duration:12s;">🌿</div>
-  <div class="ingr" style="left:85%; animation-duration:7s;">🧀</div>
-
-  <div class="hero-left">
-    <div class="hero-eyebrow">🔥 Crujientes y Calienticas</div>
-    <h1>Empanadas con <span class="accent">verdadero sabor</span> artesanal</h1>
-    <p class="hero-sub">Masa dorada ultracrujiente, rellenos generosos con ingredientes seleccionados y el ají secreto de la casa que te hará repetir.</p>
+  <div class="hero-text">
+    <div class="hero-badge">🫓 Hechas a mano, todos los días</div>
+    <h1>Empanadas <span>artesanales.</span></h1>
+    <p class="hero-sub">Recetas de abuela, ingredientes frescos y un sabor que enamora desde el primer bocado. Pedidos al instante por WhatsApp.</p>
     <div class="hero-btns">
-      <a href="#menu" class="btn-hero-primary">Ver Menú Especial</a>
+      <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20empanadas%20🫓" target="_blank" class="btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color:#000"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hacer pedido
+      </a>
+      <a href="#menu" class="btn-secondary">Ver menú completo ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">500+</div><div class="hstat-l">Pedidos al mes</div></div>
+      <div class="hstat"><div class="hstat-n">4.9★</div><div class="hstat-l">Calificación</div></div>
+      <div class="hstat"><div class="hstat-n">30min</div><div class="hstat-l">Entrega</div></div>
     </div>
   </div>
-  
-  <div class="hero-right">
-    <div class="hero-dish-wrap">
-      <div class="hero-dish-glow"></div>
-      <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?q=80&w=600&auto=format&fit=crop" alt="Empanadas Doradas" class="hero-dish-img">
+  <div class="hero-img-wrap">
+    <div class="hero-img-card">
+      <img src="imagenes/hero.png" alt="Empanadas Premium">
     </div>
   </div>
 </section>
 
-<div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-n">100%</div>
-    <div class="stat-l">Maíz Frito Natural</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-n">+5k</div>
-    <div class="stat-l">Clientes Felices</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-n">0%</div>
-    <div class="stat-l">Grasas Trans</div>
-  </div>
-</div>
-
-<div class="marquee-wrap">
+<div class="marquee">
   <div class="marquee-track">
-    <div class="mq-item"><span class="mq-dot">✦</span> Hechas en Casa Diariamente</div>
-    <div class="mq-item"><span class="mq-dot">✦</span> Envío Rápido y Caliente</div>
-    <div class="mq-item"><span class="mq-dot">✦</span> El Verdadero Ají Casero</div>
-    <div class="mq-item"><span class="mq-dot">✦</span> Masa Secreta Crujiente</div>
-    <div class="mq-item"><span class="mq-dot">✦</span> Hechas en Casa Diariamente</div>
-    <div class="mq-item"><span class="mq-dot">✦</span> Envío Rápido y Caliente</div>
-    <div class="mq-item"><span class="mq-dot">✦</span> El Verdadero Ají Casero</div>
-    <div class="mq-item"><span class="mq-dot">✦</span> Masa Secreta Crujiente</div>
+    <span class="mq-item">Carne Tradicional<span class="mq-dot"></span></span>
+    <span class="mq-item">Pollo Artesanal<span class="mq-dot"></span></span>
+    <span class="mq-item">Queso & Maíz<span class="mq-dot"></span></span>
+    <span class="mq-item">Hechas a mano<span class="mq-dot"></span></span>
+    <span class="mq-item">Envío a domicilio<span class="mq-dot"></span></span>
+    <span class="mq-item">Pedidos por WhatsApp<span class="mq-dot"></span></span>
+    <span class="mq-item">Ingredientes frescos<span class="mq-dot"></span></span>
+    <span class="mq-item">Carne Tradicional<span class="mq-dot"></span></span>
+    <span class="mq-item">Pollo Artesanal<span class="mq-dot"></span></span>
+    <span class="mq-item">Queso & Maíz<span class="mq-dot"></span></span>
+    <span class="mq-item">Hechas a mano<span class="mq-dot"></span></span>
+    <span class="mq-item">Envío a domicilio<span class="mq-dot"></span></span>
+    <span class="mq-item">Pedidos por WhatsApp<span class="mq-dot"></span></span>
+    <span class="mq-item">Ingredientes frescos<span class="mq-dot"></span></span>
   </div>
 </div>
 
-<section class="section menu-section" id="menu">
-  <div class="sec-eyebrow">Para Antojarse</div>
-  <h2 class="sec-h">Explora Nuestro <span>Menú de Autor</span></h2>
-  <p class="sec-p">Cada empanada se arma a mano con amor y se fríe al momento para garantizar ese 'crunch' perfecto.</p>
-  
+<section class="menu-section reveal" id="menu">
+  <div class="sec-tag">Especialidades</div>
+  <h2 class="sec-title">Nuestro <span>menú</span></h2>
+  <p class="sec-sub">Cada empanada hecha con amor, masa fresca y rellenos que no vas a olvidar.</p>
   <div class="menu-grid">
-    <div class="menu-card" onclick="window.open('https://wa.me/573000000000?text=Hola!%20Quiero%20pedir%20la%20Empanada%20Criolla%20de%20Carne','_blank')">
-      <div class="mc-img">
-        <span class="mc-badge">La Más Vendida</span>
-        <img src="https://images.unsplash.com/photo-1628587127928-1b5e0242207b?q=80&w=500&auto=format&fit=crop" alt="Empanada de Carne">
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="imagenes/carne.png" alt="Carne Tradicional">
+        <div class="menu-badge">⭐ Favorita</div>
       </div>
-      <div class="mc-body">
-        <h3>La Criolla de Carne</h3>
-        <p>Carne de res tierna desmechada, sazonada con un ahogado tradicional de la abuela y papitas picadas.</p>
-        <div class="mc-footer">
-          <div class="mc-price">$3.500<span>/un</span></div>
-          <span class="mc-btn">Pedir</span>
-        </div>
+      <div class="menu-card-body">
+        <h3>Carne Tradicional</h3>
+        <p>Carne molida jugosa, papa criolla, huevo y especias secretas. La clásica que nunca falla.</p>
+        <div class="menu-price">$2.500 <span>c/u</span></div>
+        <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20pedir%20empanadas%20de%20Carne%20Tradicional%20🫓" target="_blank" class="menu-order-btn">Pedir por WhatsApp →</a>
       </div>
     </div>
-
-    <div class="menu-card" onclick="window.open('https://wa.me/573000000000?text=Hola!%20Quiero%20pedir%20la%20Empanada%20Especial%20de%20Pollo','_blank')">
-      <div class="mc-img">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=500&auto=format&fit=crop" alt="Empanada de Pollo">
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="imagenes/pollo.png" alt="Pollo Artesanal">
+        <div class="menu-badge" style="background:var(--gold2);color:#000">🐔 Popular</div>
       </div>
-      <div class="mc-body">
-        <h3>Pollo Cremoso & Queso</h3>
-        <p>Pechuga de pollo desmechada en una salsa suave de la casa con maíz tierno y queso doble crema derretido.</p>
-        <div class="mc-footer">
-          <div class="mc-price">$3.800<span>/un</span></div>
-          <span class="mc-btn">Pedir</span>
-        </div>
+      <div class="menu-card-body">
+        <h3>Pollo Artesanal</h3>
+        <p>Pollo desmenuzado, ají dulce, cilantro y tomate fresco. Suave, aromática e irresistible.</p>
+        <div class="menu-price">$2.500 <span>c/u</span></div>
+        <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20pedir%20empanadas%20de%20Pollo%20Artesanal%20🐔" target="_blank" class="menu-order-btn">Pedir por WhatsApp →</a>
       </div>
     </div>
-
-    <div class="menu-card" onclick="window.open('https://wa.me/573000000000?text=Hola!%20Quiero%20pedir%20la%20Empanada%20Tres%20Quesos','_blank')">
-      <div class="mc-img">
-        <span class="mc-badge gold">Premium</span>
-        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=500&auto=format&fit=crop" alt="Empanada de Queso">
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="imagenes/queso maiz.png" alt="Queso & Maíz">
       </div>
-      <div class="mc-body">
-        <h3>Explosión Tres Quesos</h3>
-        <p>Una mezcla fundida de queso Mozzarella, Campesino local y un toque de queso Costeño para balancear.</p>
-        <div class="mc-footer">
-          <div class="mc-price">$3.600<span>/un</span></div>
-          <span class="mc-btn">Pedir</span>
-        </div>
+      <div class="menu-card-body">
+        <h3>Queso & Maíz</h3>
+        <p>Queso fundido con maíz tierno. Cremosa por dentro, perfectamente dorada por fuera.</p>
+        <div class="menu-price">$2.200 <span>c/u</span></div>
+        <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20pedir%20empanadas%20de%20Queso%20y%20Maíz%20🧀" target="_blank" class="menu-order-btn">Pedir por WhatsApp →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section feature-section">
-  <div class="feature-inner">
-    <div class="feat-img-wrap">
-      <div class="feat-dish">
-        <img src="https://images.unsplash.com/photo-1595231712425-604187ed3533?q=80&w=600&auto=format&fit=crop" alt="Ají Casero">
+<section class="process-section reveal" id="como-pedir">
+  <div class="sec-tag">Proceso</div>
+  <h2 class="sec-title">Pedir es <span>súper fácil</span></h2>
+  <p class="sec-sub">En 4 pasos tienes tus empanadas calientes en la puerta.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Elige tu combo</h4>
+      <p>Revisa el menú y elige cuántas y de qué sabor quieres.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Escribe al WhatsApp</h4>
+      <p>Manda tu pedido al número. Respondemos en minutos.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Confirmamos y preparamos</h4>
+      <p>Confirmamos tu pedido y empezamos a hacer tus empanadas frescas.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>¡A disfrutar!</h4>
+      <p>Recibe tu pedido caliente y listo para comer. Sin complicaciones.</p>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section reveal" id="nosotros">
+  <div class="sec-tag">Nuestra historia</div>
+  <div class="feature-grid">
+    <div class="feature-img">
+      <div class="feature-img-card">
+        <img src="imagenes/hero.png" alt="Nuestras Raíces">
       </div>
-      <div class="feat-tag-float">El Secreto<span>AJÍ</span>Artesanal</div>
+      <div class="feature-float">
+        <div class="feature-float-n">100%</div>
+        <div class="feature-float-l">Ingredientes<br>frescos</div>
+      </div>
     </div>
     <div>
-      <div class="sec-eyebrow">Calidad Sin Excepciones</div>
-      <h2 class="sec-h">No es comida rápida, es <span>alta tradición</span></h2>
-      <p class="sec-p">Nos tomamos el tiempo de cocinar a fuego lento cada relleno para que sientas la explosión de sabor en cada mordisco.</p>
-      <ul class="feat-list">
-        <li><div class="icon">✓</div> Ingredientes frescos traídos del campo local.</li>
-        <li><div class="icon">✓</div> Aceite limpio en cada tanda para un color dorado perfecto.</li>
-        <li><div class="icon">✓</div> Empacadas en cajas térmicas especiales: llegan hirviendo.</li>
+      <h2 class="sec-title">Sabor que <span>se nota</span></h2>
+      <p style="color:var(--text-muted);font-size:.95rem;line-height:1.8;font-weight:400">Somos un emprendimiento familiar con años haciendo lo que más amamos: empanadas crujientes, sabrosas y honestas.</p>
+      <ul class="feature-list">
+        <li>Masa preparada a diario con receta tradicional</li>
+        <li>Rellenos sin conservantes, con ingredientes del mercado</li>
+        <li>Pedidos personalizados para eventos y empresas</li>
+        <li>Delivery rápido en la zona, sin mínimo de pedido</li>
       </ul>
+      <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20hacer%20un%20pedido%20🫓" target="_blank" class="btn-primary" style="display:inline-flex;margin-top:32px;color:#000">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color:#000"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hacer mi pedido ahora
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section steps-section" id="proceso">
-  <div class="sec-eyebrow">¿Cómo comprar?</div>
-  <h2 class="sec-h">Tu pedido listo en <span>3 pasos</span></h2>
-  <p class="sec-p">Diseñamos nuestro proceso de atención para que no pases ni un minuto de hambre.</p>
-  
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-n">1</div>
-      <h4>Elige tus Sabores</h4>
-      <p>Selecciona tus favoritas desde nuestro menú interactivo haciendo clic.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-n">2</div>
-      <h4>Escríbenos al WhatsApp</h4>
-      <p>La web armará tu mensaje de manera automática. Envías y confirmas tu dirección.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-n">3</div>
-      <h4>¡A Disfrutar!</h4>
-      <p>Despachamos de inmediato. Recibes tus empanadas calientes con sus respectivos ajís.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">La<span>Antojería</span></div>
-  <p class="footer-text">Llevando el sabor tradicional de las empanadas hechas en casa a otro nivel.</p>
-  <div class="footer-copy">
-    &copy; 2026 La Antojería. Diseñado con pasión digital para negocios gastronómicos.
-  </div>
-</footer>
-
-<script>
-// Efecto de scroll en la barra de navegación
-window.addEventListener('scroll', function() {
-  const nav = document.getElementById('navbar');
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-});
-  <style>
-/* ── TESTIMONIALS ── */
-.test-section { background: var(--cream); text-align: center; }
-.test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
-.test-card { background: #fff; padding: 32px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,.04); text-align: left; transition: .3s; }
-.test-card:hover { transform: translateY(-5px); }
-.test-stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 14px; }
-.test-text { color: var(--text); font-size: .92rem; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
-.test-author { display: flex; align-items: center; gap: 14px; }
-.test-av { width: 44px; height: 44px; background: var(--red3); color: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; }
-.test-name { font-weight: 700; font-size: .9rem; color: var(--dark); }
-.test-loc { font-size: .75rem; color: var(--muted); }
-
-/* ── CTA FINAL ── */
-.cta-section { background: linear-gradient(135deg, var(--dark) 0%, #2d1005 100%); padding: 100px 6%; text-align: center; position: relative; color: #fff; }
-.cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
-.cta-section h2 span { color: var(--gold2); font-style: italic; }
-.cta-section p { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 40px; font-size: 1rem; line-height: 1.7; }
-.cta-btns { display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; }
-.btn-wa-big { display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #fff; padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: .95rem; text-decoration: none; box-shadow: 0 10px 30px rgba(37,211,102,.3); transition: .3s; }
-.btn-wa-big:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(37,211,102,.5); }
-.btn-wa-big svg { width: 22px; height: 22px; fill: #fff; }
-.btn-menu { display: inline-flex; color: #fff; border: 2px solid rgba(255,255,255,0.2); padding: 16px 32px; border-radius: 50px; font-weight: 600; font-size: .9rem; text-decoration: none; transition: .3s; }
-.btn-menu:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
-.cta-note { font-size: .78rem; color: rgba(255,255,255,0.4) !important; margin-top: 24px !important; }
-
-/* ── ANIMACIONES REVEAL ── */
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
-.reveal.in { opacity: 1; transform: translateY(0); }
-
-/* ── FOOTER CORREGIDO ── */
-.foot-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: #fff; text-decoration: none; display: block; margin-bottom: 10px; }
-.foot-logo span { color: var(--gold2); }
-.foot-r { font-size: .8rem; color: rgba(255,255,255,0.4); }
-</style>
-
-<section class="test-section section reveal" id="testimonios">
-  <div class="sec-eyebrow">Reseñas Realistas</div>
-  <h2 class="sec-h">Clientes que <span>vuelven a pedir</span></h2>
-  <p class="sec-p">Más de 500 pedidos despachados en la zona. El sabor no miente.</p>
+<section class="test-section reveal">
+  <div class="sec-tag">Reseñas</div>
+  <h2 class="sec-title">Lo que dicen <span>nuestros clientes</span></h2>
+  <p class="sec-sub">Más de 500 pedidos y todos vuelven a pedir.</p>
   <div class="test-grid">
     <div class="test-card">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text">"La de carne desmechada es una locura total. Pido mínimo 10 cada semana para las reuniones en la oficina y vuelan en cinco minutos."</p>
-      <div class="test-author">
-        <div class="test-av">CM</div>
-        <div>
-          <div class="test-name">Carlos M.</div>
-          <div class="test-loc">Cliente semanal · Bogotá</div>
-        </div>
-      </div>
+      <p class="test-text">"Las mejores empanadas del sector. La de carne es una locura, pido mínimo 10 cada semana para la oficina."</p>
+      <div class="test-author"><div class="test-avatar">CM</div><div><div class="test-name">Carlos M.</div><div class="test-loc">Cliente frecuente</div></div></div>
     </div>
     <div class="test-card">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text">"Pedí un combo de 50 empanadas variadas para un evento familiar. Llegaron hirviendo, crocantes y el ají casero se robó el show por completo."</p>
-      <div class="test-author">
-        <div class="test-av">AL</div>
-        <div>
-          <div class="test-name">Ana L.</div>
-          <div class="test-loc">Evento Familiar · Cajicá</div>
-        </div>
-      </div>
+      <p class="test-text">"Pedí para un evento de 40 personas y quedaron todos encantados. Rápido, puntual y riquísimo."</p>
+      <div class="test-author"><div class="test-avatar">AL</div><div><div class="test-name">Ana L.</div><div class="test-loc">Evento empresarial</div></div></div>
     </div>
     <div class="test-card">
       <div class="test-stars">★★★★★</div>
-      <p class="test-text">"La masa es completamente diferente, cero grasosa y muy tostada. Se nota que las arman el mismo día. En mi casa no compramos en otro lado."</p>
-      <div class="test-author">
-        <div class="test-av">JR</div>
-        <div>
-          <div class="test-name">Juliana R.</div>
-          <div class="test-loc">Vecina del sector</div>
-        </div>
-      </div>
+      <p class="test-text">"La masa es diferente a todo lo que he probado. Se nota que son hechas a mano. No hay vuelta atrás."</p>
+      <div class="test-author"><div class="test-avatar">JR</div><div><div class="test-name">Juliana R.</div><div class="test-loc">Vecina del barrio</div></div></div>
     </div>
   </div>
 </section>
- 
+
 <section class="cta-section reveal">
-  <h2>¿Ya se te hizo<br><span>agua la boca?</span></h2>
-  <p>Un toque al botón de abajo y preparamos tu pedido de inmediato. Envío rápido y seguro.</p>
-  <div class="cta-btns">
-    <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20hacer%20un%20pedido%20🫓%20Vi%20su%20página%20web" target="_blank" class="btn-wa-big">
+  <h2>¿Se te hizo agua la boca?</h2>
+  <p>No esperes más. Un mensaje y tus empanadas están en camino.</p>
+  <div class="cta-btn-wrap">
+    <a href="https://wa.me/573224636867?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20empanadas%20🫓%20Vi%20su%20página%20web" target="_blank" class="btn-wa">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Pedir por WhatsApp ahora
     </a>
-    <a href="#menu" class="btn-menu">Ver el menú completo</a>
   </div>
-  <p class="cta-note">Respondemos en menos de 5 minutos · Lunes a domingo · 7am – 9pm</p>
+  <p class="cta-note">Respondemos en menos de 5 minutos · Lunes a domingo 7am–9pm</p>
 </section>
- 
+
 <footer>
-  <a href="#" class="foot-logo">La<span>Antojería</span></a>
-  <span class="foot-r">© 2026 · Desarrollado con tecnología web premium</span>
+  <div class="foot-logo">EMPAN<span>ADAS</span> · Artesanales</div>
+  <span class="foot-r">© 2026 · Hecho con ❤️ y mucho sabor</span>
 </footer>
- 
+
 <script>
-// El script del Navbar ya está arriba, este maneja el efecto reveal suave
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) {
-      e.target.classList.add('in');
-      obs.unobserve(e.target);
+// NAV scroll background effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Hamburguesa Toggle Logic
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+
+// Cerrar menú móvil al hacer clic en un enlace
+const mobileLinks = document.querySelectorAll('.mobile-menu a');
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// BACKGROUND EMBER PARTICLES GENERATOR
+const pContainer = document.getElementById('particles');
+const particleCount = 15;
+
+for (let i = 0; i < particleCount; i++) {
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.left = `${Math.random() * 100}vw`;
+  p.style.animationDuration = `${6 + Math.random() * 8}s`;
+  p.style.animationDelay = `${Math.random() * 5}s`;
+  const size = 3 + Math.random() * 3;
+  p.style.width = `${size}px`;
+  p.style.height = `${size}px`;
+  pContainer.appendChild(p);
+}
+
+// SCROLL REVEAL (Intersection Observer)
+const revealElements = document.querySelectorAll('.reveal');
+const options = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+}, options);
 
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+revealElements.forEach(el => observer.observe(el));
 </script>
-</script>
-
 </body>
 </html>
